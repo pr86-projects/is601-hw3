@@ -13,7 +13,7 @@ class Calculation:
         return self.operation(self.a, self.b)
 
 '''Class with static methods. No instance is created.'''
-class calculator:
+class Calculator:
     @staticmethod
     def add(a,b):
         # This is a static method that pass the add function from calculator.operations
