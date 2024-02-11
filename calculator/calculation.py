@@ -10,6 +10,11 @@ class Calculation:
         self.b = b # property, stores value of b in an instance of this class
         self.operation = operation # property, stores the operation function
 
+    @staticmethod
+    def create(a: Decimal, b: Decimal, operation: Callable[[Decimal, Decimal], Decimal]):
+        '''This is a factory pattern that returns an instance of this class'''
+        return Calculation(a, b, operation)
+
     def perform(self) -> Decimal:
          # Calls stored operation with a and b
         return self.operation(self.a, self.b)

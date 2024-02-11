@@ -1,4 +1,5 @@
 from calculator.calculation import Calculation
+from calculator.calculations import Calculations
 from calculator.operations import add, subtract, multiply, divide
 from decimal import Decimal
 from typing import Callable
@@ -8,7 +9,7 @@ class Calculator:
     @staticmethod
     def _perform_operation(a: Decimal, b: Decimal, operation: Callable[[Decimal, Decimal], Decimal]) -> Decimal:
         """Create and perform a calculation, then return the result."""
-        calculation = Calculation(a, b, operation)
+        calculation = Calculation.create(a, b, operation)
         return calculation.perform()
     
     @staticmethod
