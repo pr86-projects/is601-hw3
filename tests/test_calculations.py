@@ -4,7 +4,7 @@ from decimal import Decimal
 import pytest
 from calculator.calculation import Calculation
 from calculator.calculations import Calculations
-from calculator.operations import add, subtract
+from calculator.operations import add, subtract, multiply, divide
 
 @pytest.fixture
 def setup_calculations():
@@ -13,6 +13,8 @@ def setup_calculations():
     # Adding sample calculations to the history for tests
     Calculations.add_calculation(Calculation.create(Decimal('10'), Decimal('5'), add))
     Calculations.add_calculation(Calculation.create(Decimal('20'), Decimal('3'), subtract))
+    Calculations.add_calculation(Calculation(Decimal('3'), Decimal('2'), multiply))
+    Calculations.add_calculation(Calculation(Decimal('6'), Decimal('3'), divide))
 
 def test_add_calculation(setup_calculations):
     """Test adding a calculation."""
@@ -23,7 +25,7 @@ def test_add_calculation(setup_calculations):
 def test_get_history(setup_calculations):
     """Test retrieving calculation history."""
     history = Calculations.get_history()
-    assert len(history) == 2, "History does not contain the expected number of calculations"
+    assert len(history) == 4, "History does not contain the expected number of calculations"
 
 def test_clear_history(setup_calculations):
     """Test clearing the calculation history."""
@@ -33,7 +35,7 @@ def test_clear_history(setup_calculations):
 def test_get_latest(setup_calculations):
     """Test getting the latest calculation."""
     latest = Calculations.get_latest()
-    assert latest.a == Decimal('20') and latest.b == Decimal('3'), "Did not get the correct latest calculation"
+    assert latest.a == Decimal('6') and latest.b == Decimal('3'), "Did not get the correct latest calculation"
 
 def test_find_by_operation(setup_calculations):
     """Test finding calculations by operation type."""
