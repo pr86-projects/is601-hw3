@@ -10,6 +10,7 @@ class Calculator:
     def _perform_operation(a: Decimal, b: Decimal, operation: Callable[[Decimal, Decimal], Decimal]) -> Decimal:
         """Create and perform a calculation, then return the result."""
         calculation = Calculation.create(a, b, operation)
+        Calculations.add_calculation(calculation) # add instance of this class/operation to the history
         return calculation.perform()
     
     @staticmethod

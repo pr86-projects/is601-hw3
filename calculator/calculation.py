@@ -18,3 +18,7 @@ class Calculation:
     def perform(self) -> Decimal:
          # Calls stored operation with a and b
         return self.operation(self.a, self.b)
+    
+    def __repr__(self):
+        """Return a simplified string representation of the calculation."""
+        return f"Calculation({self.a}, {self.b}, {self.operation.__name__})"
