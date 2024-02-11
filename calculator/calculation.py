@@ -4,7 +4,7 @@ from calculator.operations import add, subtract,multiply, divide
 
 '''Creates an Instance of the Calculation class'''
 class Calculation:
-    def __init__(self, a: Decimal, b: Decimal, operation):
+    def __init__(self, a: Decimal, b: Decimal, operation: Callable[[Decimal, Decimal], Decimal]):
         # Dunder method for object initialization
         self.a = a # property, stores value of a in an instance of this class
         self.b = b # property, stores value of b in an instance of this class
