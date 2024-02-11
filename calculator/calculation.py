@@ -2,7 +2,7 @@ from decimal import Decimal
 from typing import Callable
 from calculator.operations import add, subtract,multiply, divide
 
-# Calculation class 
+'''Creates an Instance of the Calculation class'''
 class Calculation:
     def __init__(self, a: Decimal, b: Decimal, operation):
         # Dunder method for object initialization
