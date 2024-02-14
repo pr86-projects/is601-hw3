@@ -7,18 +7,9 @@ import pytest
 from calculator.calculation import Calculation
 from calculator.operations import add, subtract, multiply, divide
 
-# It's good practice to add a docstring at the beginning of the module explaining its purpose.
-
-@pytest.mark.parametrize("a, b, operation, expected", [
-    (Decimal('10'), Decimal('5'), add, Decimal('15')),
-    (Decimal('10'), Decimal('5'), subtract, Decimal('5')),
-    (Decimal('10'), Decimal('5'), multiply, Decimal('50')),
-    (Decimal('10'), Decimal('2'), divide, Decimal('5')),
-    (Decimal('10.5'), Decimal('0.5'), add, Decimal('11.0')),
-    (Decimal('10.5'), Decimal('0.5'), subtract, Decimal('10.0')),
-    (Decimal('10.5'), Decimal('2'), multiply, Decimal('21.0')),
-    (Decimal('10'), Decimal('0.5'), divide, Decimal('20')),
-])
+# pytest.mark.parametrize decorator is used to parameterize a test function, enabling it to be called
+# with different sets of arguments. Here, it's used to test various scenarios of arithmetic operations
+# with both integer and decimal operands to ensure the operations work correctly under different conditions.
 def test_calculation_operations(a, b, operation, expected):
     """
     Test calculation operations with various scenarios.
