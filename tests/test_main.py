@@ -1,5 +1,5 @@
 import pytest
-from main import calculate_and_print  # Ensure this import matches your project structure
+from main import calculate_and_print, main  # Ensure this import matches your project structure
 
 # Parameterize the test function to cover different operations and scenarios, including errors
 @pytest.mark.parametrize("a_string, b_string, operation_string, expected_string", [
@@ -16,3 +16,11 @@ def test_calculate_and_print(a_string, b_string, operation_string,expected_strin
     calculate_and_print(a_string, b_string, operation_string)
     captured = capsys.readouterr()
     assert captured.out.strip() == expected_string
+
+def test_main_incorrect_args(monkeypatch, capsys):
+    monkeypatch.setattr("sys.argv", ["script_name", "arg1", "arg2"])  # Less than needed
+    with pytest.raises(SystemExit) as e:
+        main()
+    assert e.value.code == 1
+    captured = capsys.readouterr()
+    assert "Usage: python calculator_main.py <number1> <number2> <operation>" in captured.out
