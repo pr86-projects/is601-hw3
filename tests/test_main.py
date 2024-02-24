@@ -1,3 +1,4 @@
+"""
 import pytest
 from main import calculate_and_print, main  # Ensure this import matches your project structure
 
@@ -24,3 +25,4 @@ def test_main_incorrect_args(monkeypatch, capsys):
     assert e.value.code == 1
     captured = capsys.readouterr()
     assert "Usage: python calculator_main.py <number1> <number2> <operation>" in captured.out
+"""
