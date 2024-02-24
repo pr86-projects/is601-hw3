@@ -1,4 +1,3 @@
-import sys
 from app.commands import Command
 
 
