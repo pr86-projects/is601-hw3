@@ -3,12 +3,12 @@ This module contains tests for the all Commands.
 """
 import pytest
 from app import App
-from app.commands.goodbye import GoodbyeCommand
-from app.commands.greet import GreetCommand
-from app.commands.add import AddCommand
-from app.commands.subtract import SubtractCommand
-from app.commands.multiply import MultiplyCommand
-from app.commands.divide import DivideCommand
+from app.plugins.goodbye import GoodbyeCommand
+from app.plugins.greet import GreetCommand
+from app.plugins.add import AddCommand
+from app.plugins.subtract import SubtractCommand
+from app.plugins.multiply import MultiplyCommand
+from app.plugins.divide import DivideCommand
 
 def test_greet_command(capfd):
     """This test verifies that the GreetCommand class prints 'Hello, World!' when executed."""
