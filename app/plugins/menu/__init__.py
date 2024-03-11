@@ -1,4 +1,5 @@
 import sys
+import logging
 from app.commands import Command
 
 
@@ -13,6 +14,7 @@ class MenuCommand(Command):
                     'goodbye                    Say goodbye to the user', 
                     'discord                    Send something to Discord', 
                     'exit                       Exits the app']  # Replace with the actual list of commands
+        logging.info("Available commands:")
         print('Available commands:')
         for command in commands:
             print(f'- {command}')
