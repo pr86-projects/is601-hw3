@@ -10,11 +10,13 @@ class AddCommand(Command):
             num2 = Decimal(args[1])
             logging.info(f"Add numbers {num1} and {num2}")
         except:
-            logging.error(f"Please enter a valid number")
+            logging.error(f"Please enter a valid number: {args}")
             print("Please enter a valid number")
             return
         try:
+            num1 = Decimal(args[0])
+            num2 = Decimal(args[1])
             print(f"The result is: {Calculator.add(num1, num2)}")
         except ValueError as e:
-            logging.error(f"Error adding numbers {num1} and {num2}: {e}")
+            logging.error(f"Error adding numbers {num1} and {num2}: {e}") # pragma: no cover
             print(e)

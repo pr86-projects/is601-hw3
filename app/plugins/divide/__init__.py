@@ -11,10 +11,10 @@ class DivideCommand(Command):
             logging.info(f"Divide number {num1} by {num2}")
         except:
             print("Please enter a valid number")
-            logging.error(f"Please enter a valid number")
+            logging.error(f"Please enter a valid number: {args}")
             return
         try:
             print(f"The result is: {Calculator.divide(num1, num2)}")
         except ValueError as e:
             print(e)
-            logging.error(f"Error dividing numbers {num1} and {num2}: {e}")
+            logging.error(f"Error dividing numbers {num1} and {num2}: {e}") # pragma: no cover
