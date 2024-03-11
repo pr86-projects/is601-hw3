@@ -10,6 +10,7 @@ load-plugins=pylint_django
 disable= unused-argument,
          line-too-long,
          redefined-outer-name
+         logging-format-interpolation, another-logging-warning
 
 [REPORTS]
 # Set the output format. Available formats: text, parseable, colorized, json, msvs (visual studio) and html

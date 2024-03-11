@@ -16,28 +16,28 @@ def setup_calculations():
     Calculations.add_calculation(Calculation(Decimal('3'), Decimal('2'), multiply))
     Calculations.add_calculation(Calculation(Decimal('6'), Decimal('3'), divide))
 
-def test_add_calculation(setup_calculations):
+def test_add_calculation(setup_calculations: None): # pylint: disable=redefined-outer-name
     """Test adding a calculation."""
     calc = Calculation.create(Decimal('2'), Decimal('2'), add)
     Calculations.add_calculation(calc)
     assert Calculations.get_latest() == calc, "Failed to add the calculation to the history"
 
-def test_get_history(setup_calculations):
+def test_get_history(setup_calculations: None): # pylint: disable=redefined-outer-name
     """Test retrieving calculation history."""
     history = Calculations.get_history()
     assert len(history) == 4, "History does not contain the expected number of calculations"
 
-def test_clear_history(setup_calculations):
+def test_clear_history(setup_calculations: None): # pylint: disable=redefined-outer-name
     """Test clearing the calculation history."""
     Calculations.clear_history()
     assert len(Calculations.get_history()) == 0, "History was not cleared"
 
-def test_get_latest(setup_calculations):
+def test_get_latest(setup_calculations: None): # pylint: disable=redefined-outer-name
     """Test getting the latest calculation."""
     latest = Calculations.get_latest()
     assert latest.a == Decimal('6') and latest.b == Decimal('3'), "Did not get the correct latest calculation"
 
-def test_find_by_operation(setup_calculations):
+def test_find_by_operation(setup_calculations: None): # pylint: disable=redefined-outer-name
     """Test finding calculations by operation type."""
     add_operations = Calculations.find_by_operation("add")
     assert len(add_operations) == 1, "Did not find the correct number of calculations with add operation"

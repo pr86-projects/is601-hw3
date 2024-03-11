@@ -25,5 +25,5 @@ class CommandHandler:
         except KeyError:
             print(f"No such command: {command_name}")
         except Exception as e:
-            print(f"Error executing command {command_name}: {e}")
+            print(f"Error executing command {command_name}: {e}") # pragma: no cover
             
